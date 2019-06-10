@@ -1,0 +1,705 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<title>:: Swift - Hospital Admin ::</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+<!-- Custom Css -->
+<link href="assets/css/main.css" rel="stylesheet">
+<!-- Swift Themes. You can choose a theme from css/themes instead of get all themes -->
+<link href="assets/css/themes/all-themes.css" rel="stylesheet" />
+</head>
+
+<body class="theme-cyan">
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="preloader">
+            <div class="spinner-layer pl-cyan">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <p>Please wait...</p>
+    </div>
+</div>
+<!-- #END# Page Loader --> 
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+<!-- #END# Overlay For Sidebars -->
+<!-- #Float icon -->
+<ul id="f-menu" class="mfb-component--br mfb-zoomin" data-mfb-toggle="hover">
+  <li class="mfb-component__wrap">
+    <a href="#" class="mfb-component__button--main g-bg-cyan">
+      <i class="mfb-component__main-icon--resting zmdi zmdi-plus"></i>
+      <i class="mfb-component__main-icon--active zmdi zmdi-close"></i>
+    </a>
+    <ul class="mfb-component__list">
+      <li>
+        <a href="javascript:void(0);" data-mfb-label="Doctor Schedule" class="mfb-component__button--child bg-blue">
+          <i class="zmdi zmdi-calendar mfb-component__child-icon"></i>
+        </a>
+      </li>
+      <li>
+        <a href="javascript:void(0);" data-mfb-label="Patients List" class="mfb-component__button--child bg-orange">
+          <i class="zmdi zmdi-account-o mfb-component__child-icon"></i>
+        </a>
+      </li>
+
+      <li>
+        <a href="javascript:void(0);" data-mfb-label="Payments" class="mfb-component__button--child bg-purple">
+          <i class="zmdi zmdi-balance-wallet mfb-component__child-icon"></i>
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<!-- #Float icon -->
+<!-- Morphing Search  -->
+<div id="morphsearch" class="morphsearch">
+    <form class="morphsearch-form">
+        <div class="form-group m-0">
+            <input value="" type="search" placeholder="Explore Swift..." class="form-control morphsearch-input" />
+            <button class="morphsearch-submit" type="submit">Search</button>
+        </div>
+    </form>
+    <div class="morphsearch-content">
+        <div class="dummy-column">
+            <h2>People</h2>
+            <a class="dummy-media-object" href="#"> <img class="round" src="assets/images/xs/avatar1.jpg" alt=""/>
+            <h3>Sara Soueidan</h3>
+            </a> <a class="dummy-media-object" href="#"> <img class="round" src="assets/images/xs/avatar2.jpg" alt=""/>
+            <h3>Rachel Smith</h3>
+            </a> <a class="dummy-media-object" href="#"> <img class="round" src="assets/images/xs/avatar3.jpg" alt=""/>
+            <h3>Peter Finlan</h3>
+            </a> <a class="dummy-media-object" href="#"> <img class="round" src="assets/images/xs/avatar4.jpg" alt=""/>
+            <h3>Patrick Cox</h3>
+            </a> <a class="dummy-media-object" href="#"> <img class="round" src="assets/images/xs/avatar5.jpg" alt=""/>
+            <h3>Tim Holman</h3>
+            </a></div>
+        <div class="dummy-column">
+            <h2>Popular</h2>
+            <a class="dummy-media-object" href="#"> <img class="round" src="assets/images/xs/avatar5.jpg" alt=""/>
+            <h3>Sara Soueidan</h3>
+            </a> <a class="dummy-media-object" href="#"> <img class="round" src="assets/images/xs/avatar4.jpg" alt=""/>
+            <h3>Rachel Smith</h3>
+            </a> <a class="dummy-media-object" href="#"> <img class="round" src="assets/images/xs/avatar1.jpg" alt=""/>
+            <h3>Peter Finlan</h3>
+            </a> <a class="dummy-media-object" href="#"> <img class="round" src="assets/images/xs/avatar2.jpg" alt=""/>
+            <h3>Patrick Cox</h3>
+            </a> <a class="dummy-media-object" href="#"> <img class="round" src="assets/images/xs/avatar3.jpg" alt=""/>
+            <h3>Tim Holman</h3>
+            </a> </div>
+        <div class="dummy-column">
+            <h2>Recent</h2>
+            <a class="dummy-media-object" href="#"> <img class="round" src="assets/images/xs/avatar1.jpg" alt=""/>
+            <h3>Sara Soueidan</h3>
+            </a> <a class="dummy-media-object" href="#"> <img class="round" src="assets/images/xs/avatar5.jpg" alt=""/>
+            <h3>Rachel Smith</h3>
+            </a> <a class="dummy-media-object" href="#"> <img class="round" src="assets/images/xs/avatar1.jpg" alt=""/>
+            <h3>Peter Finlan</h3>
+            </a> <a class="dummy-media-object" href="#"> <img class="round" src="assets/images/xs/avatar4.jpg" alt=""/>
+            <h3>Patrick Cox</h3>
+            </a> <a class="dummy-media-object" href="#"> <img class="round" src="assets/images/xs/avatar2.jpg" alt=""/>
+            <h3>Tim Holman</h3>
+            </a></div>
+    </div>
+    <!-- /morphsearch-content --> 
+    <span class="morphsearch-close"></span> </div>
+<!-- Top Bar -->
+<nav class="navbar clearHeader">
+    <div class="col-12">
+        <div class="navbar-header"> <a href="javascript:void(0);" class="bars"></a> <a class="navbar-brand" href="index.html">Swift Hospital</a> </div>
+        <ul class="nav navbar-nav navbar-right">
+            <!-- Notifications -->
+            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-notifications"></i> <span class="label-count">7</span> </a>
+                <ul class="dropdown-menu">
+                    <li class="header">NOTIFICATIONS</li>
+                    <li class="body">
+                        <ul class="menu">
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-light-green"><i class="zmdi zmdi-account-add"></i></div>
+                                <div class="menu-info">
+                                    <h4>12 new members joined</h4>
+                                    <p> <i class="material-icons">access_time</i> 14 mins ago </p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-cyan"><i class="zmdi zmdi-shopping-cart-plus"></i></div>
+                                <div class="menu-info">
+                                    <h4>4 sales made</h4>
+                                    <p> <i class="material-icons">access_time</i> 22 mins ago </p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-red"><i class="zmdi zmdi-delete"></i></div>
+                                <div class="menu-info">
+                                    <h4><b>Nancy Doe</b> deleted account</h4>
+                                    <p> <i class="material-icons">access_time</i> 3 hours ago </p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-orange"><i class="zmdi zmdi-edit"></i></div>
+                                <div class="menu-info">
+                                    <h4><b>Nancy</b> changed name</h4>
+                                    <p> <i class="material-icons">access_time</i> 2 hours ago </p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-blue-grey"><i class="zmdi zmdi-comment-alt-text"></i></div>
+                                <div class="menu-info">
+                                    <h4><b>John</b> commented your post</h4>
+                                    <p> <i class="material-icons">access_time</i> 4 hours ago </p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-light-green"><i class="zmdi zmdi-refresh-alt"></i></div>
+                                <div class="menu-info">
+                                    <h4><b>John</b> updated status</h4>
+                                    <p> <i class="material-icons">access_time</i> 3 hours ago </p>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <div class="icon-circle bg-purple"><i class="zmdi zmdi-settings"></i></div>
+                                <div class="menu-info">
+                                    <h4>Settings updated</h4>
+                                    <p> <i class="material-icons">access_time</i> Yesterday </p>
+                                </div>
+                                </a> </li>
+                        </ul>
+                    </li>
+                    <li class="footer"> <a href="javascript:void(0);">View All Notifications</a> </li>
+                </ul>
+            </li>
+            <!-- #END# Notifications --> 
+            <!-- Tasks -->
+            <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-flag"></i><span class="label-count">9</span> </a>
+                <ul class="dropdown-menu">
+                    <li class="header">TASKS</li>
+                    <li class="body">
+                        <ul class="menu tasks">
+                            <li> <a href="javascript:void(0);">
+                                <h4> Task 1 <small>32%</small> </h4>
+                                <div class="progress">
+                                    <div class="progress-bar bg-pink" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 32%"> </div>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <h4>Task 2 <small>45%</small> </h4>
+                                <div class="progress">
+                                    <div class="progress-bar bg-cyan" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 45%"> </div>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <h4>Task 3 <small>54%</small> </h4>
+                                <div class="progress">
+                                    <div class="progress-bar bg-teal" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 54%"> </div>
+                                </div>
+                                </a> </li>
+                            <li> <a href="javascript:void(0);">
+                                <h4> Task 4 <small>65%</small> </h4>
+                                <div class="progress">
+                                    <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 65%"> </div>
+                                </div>
+                                </a> </li>                          
+                        </ul>
+                    </li>
+                    <li class="footer"> <a href="javascript:void(0);">View All Tasks</a> </li>
+                </ul>
+            </li>
+            <!-- #END# Tasks -->
+            <li><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings"></i></a></li>
+        </ul>
+    </div>
+</nav>
+<!-- #Top Bar -->
+<section> 
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar"> 
+        <!-- User Info -->
+        <div class="user-info">
+            <div class="admin-image"> <img src="assets/images/random-avatar7.jpg" alt=""> </div>
+            <div class="admin-action-info"> <span>Welcome</span>
+                <h3>Dr. John</h3>
+                <ul>
+                    <li><a data-placement="bottom" title="Go to Inbox" href="javascript:void(0);"><i class="zmdi zmdi-email"></i></a></li>
+                    <li><a data-placement="bottom" title="Go to Profile" href="javascript:void(0);"><i class="zmdi zmdi-account"></i></a></li>                    
+                    <li><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings"></i></a></li>
+                    <li><a data-placement="bottom" title="Full Screen" href="javascript:void(0);" ><i class="zmdi zmdi-sign-in"></i></a></li>
+                </ul>
+            </div>
+            <div class="quick-stats">
+                <h5>Today Report</h5>
+                <ul>
+                    <li><span>16<i>Patient</i></span></li>
+                    <li><span>20<i>Panding</i></span></li>
+                    <li><span>04<i>Visit</i></span></li>
+                </ul>
+            </div>
+        </div>
+        <!-- #User Info --> 
+        <!-- Menu -->
+        <div class="menu">
+			<ul class="list" id="documenter_nav">				
+				<li class="header">MAIN NAVIGATION</li>
+				<li class="active open"><a href="#documenter_cover"><i class="zmdi zmdi-arrow-right"></i><span>Start </span></a></li>
+				<li><a href="#overview"><i class="zmdi zmdi-arrow-right"></i><span>Overview</span></a></li>
+				<li><a href="#features"><i class="zmdi zmdi-arrow-right"></i><span>Features</span></a></li>
+				<li><a href="#template"><i class="zmdi zmdi-arrow-right"></i><span>Template</span></a></li>
+				<li><a href="#main_menu"><i class="zmdi zmdi-arrow-right"></i><span>Main Menu</span></a></li>
+				<li><a href="#grunt_file"><i class="zmdi zmdi-arrow-right"></i><span>Grunt File</span></a></li>
+				<li><a href="#main_content"><i class="zmdi zmdi-arrow-right"></i><span>Main Content</span></a></li>            
+				<li><a href="#folder_structure"><i class="zmdi zmdi-arrow-right"></i><span>Folder Structure</span></a></li>
+				<li><a href="#css"><i class="zmdi zmdi-arrow-right"></i><span>CSS</span></a></li>
+				<li><a href="#javascript"><i class="zmdi zmdi-arrow-right"></i><span>Javascript</span></a></li>
+				<li><a href="#fonts"><i class="zmdi zmdi-arrow-right"></i><span>Fonts</span></a></li>            
+				<li><a href="#thank_you"><i class="zmdi zmdi-arrow-right"></i><span>THANK YOU!</span></a></li>
+				<li class="header">LABELS</li>
+				<li> <a href="javascript:void(0);"><i class="zmdi zmdi-chart-donut col-red"></i><span>Important</span> </a> </li>
+				<li> <a href="javascript:void(0);"><i class="zmdi zmdi-chart-donut col-amber"></i><span>Warning</span> </a> </li>
+				<li> <a href="javascript:void(0);"><i class="zmdi zmdi-chart-donut col-blue"></i><span>Information</span> </a> </li>
+			</ul>
+		</div>
+        <!-- #Menu -->
+    </aside>
+    <!-- #END# Left Sidebar --> 
+    <!-- Right Sidebar -->
+    <aside id="rightsidebar" class="right-sidebar">
+        <ul class="nav nav-tabs tab-nav-right" role="tablist">
+            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#skins">Skins</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#chat">Chat</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#settings">Setting</a></li>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane in active in active" id="skins">
+                <ul class="demo-choose-skin">
+                    <li data-theme="red">
+                        <div class="red"></div>
+                        <span>Red</span> </li>
+                    <li data-theme="purple">
+                        <div class="purple"></div>
+                        <span>Purple</span> </li>
+                    <li data-theme="blue">
+                        <div class="blue"></div>
+                        <span>Blue</span> </li>
+                    <li data-theme="cyan" class="active">
+                        <div class="cyan"></div>
+                        <span>Cyan</span> </li>
+                    <li data-theme="green">
+                        <div class="green"></div>
+                        <span>Green</span> </li>
+                    <li data-theme="deep-orange">
+                        <div class="deep-orange"></div>
+                        <span>Deep Orange</span> </li>
+                    <li data-theme="blue-grey">
+                        <div class="blue-grey"></div>
+                        <span>Blue Grey</span> </li>
+                    <li data-theme="black">
+                        <div class="black"></div>
+                        <span>Black</span> </li>
+                    <li data-theme="blush">
+                        <div class="blush"></div>
+                        <span>Blush</span> </li>
+                </ul>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="chat">
+                <div class="demo-settings">
+                    <div class="search">
+                        <div class="input-group">
+                            <div class="form-line">
+                                <input type="text" class="form-control" placeholder="Search..." required autofocus>
+                            </div>
+                        </div>
+                    </div>
+                    <h6>Recent</h6>
+                    <ul>
+                        <li class="online">
+                            <div class="media">
+                                <a  role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar1.jpg" alt=""> </a>
+                                <div class="media-body">
+                                    <span class="name">Claire Sassu</span> <span class="message">Can you share the...</span> <span class="badge badge-outline status"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="online">
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar2.jpg" alt=""> </a>
+                                <div class="media-body">
+                                    <span class="name">Maggie jackson</span> <span class="message">Can you share the...</span> <span class="badge badge-outline status"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="online">
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar3.jpg" alt=""> </a>
+                                <div class="media-body">
+                                    <span class="name">Joel King</span> <span class="message">Ready for the meeti...</span> <span class="badge badge-outline status"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <h6>Contacts</h6>
+                    <ul>
+                        <li class="offline">
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar4.jpg" alt=""> </a>
+                                <div class="media-body">
+                                    <span class="name">Joel King</span> <span class="badge badge-outline status"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="online">
+                            <div class="media"> <a  role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar1.jpg" alt=""> </a>
+                                <div class="media-body">
+                                    <span class="name">Joel King</span> <span class="badge badge-outline status"></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="offline">
+                            <div class="media"> <a class="pull-left " role="button" tabindex="0"> <img class="media-object " src="assets/images/xs/avatar2.jpg" alt=""> </a>
+                                <div class="media-body">
+                                    <span class="name">Joel King</span> <span class="badge badge-outline status"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="settings">
+                <div class="demo-settings">
+                    <p>GENERAL SETTINGS</p>
+                    <ul class="setting-list">
+                        <li> <span>Report Panel Usage</span>
+                            <div class="switch">
+                                <label>
+                                    <input type="checkbox" checked>
+                                    <span class="lever"></span></label>
+                            </div>
+                        </li>
+                        <li> <span>Email Redirect</span>
+                            <div class="switch">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="lever"></span></label>
+                            </div>
+                        </li>
+                    </ul>
+                    <p>SYSTEM SETTINGS</p>
+                    <ul class="setting-list">
+                        <li> <span>Notifications</span>
+                            <div class="switch">
+                                <label>
+                                    <input type="checkbox" checked>
+                                    <span class="lever"></span></label>
+                            </div>
+                        </li>
+                        <li> <span>Auto Updates</span>
+                            <div class="switch">
+                                <label>
+                                    <input type="checkbox" checked>
+                                    <span class="lever"></span></label>
+                            </div>
+                        </li>
+                    </ul>
+                    <p>ACCOUNT SETTINGS</p>
+                    <ul class="setting-list">
+                        <li> <span>Offline</span>
+                            <div class="switch">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="lever"></span></label>
+                            </div>
+                        </li>
+                        <li> <span>Location Permission</span>
+                            <div class="switch">
+                                <label>
+                                    <input type="checkbox" checked>
+                                    <span class="lever"></span></label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <!-- #END# Right Sidebar --> 
+</section>
+
+<section class="content home">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>Dashboard</h2>
+            <small class="text-muted">Welcome to Swift application</small>
+        </div>        
+        <div class="row clearfix">
+			<div class="col-sm-12">
+				<div class="card" id="documenter_cover">
+					<div class="header">
+						<h2>Start Swift</h2>
+					</div>
+					<div class="body">
+						<h2>Swift Hospital- Bring your Admin Panel to life.</h2>
+						 <ul>
+							<li>Created: 21 February 2017 </li>
+							<li>latest update: 15 November 2017</li>
+							<li>by: ThemeMakker</li>							
+							<li>email : <a href="mailto:thememakker@gmail.com">thememakker@gmail.com</a></li>
+						</ul>
+						<p>Thank you for purchasing our template. If you have any questions that are beyond the scope of this help file, please feel free to email at thememakker@gmail.com</p>
+						<p>Thanks so much! (Please don't forgot to rate it )</p>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div class="row clearfix">
+			<div class="col-sm-12">
+				<div class="card" id="overview">
+					<div class="header">
+						<h2>Brief Overview</h2>
+					</div>
+					<div class="body">
+						<p>Swift is a popular open source WebApp template for admin dashboards and admin panels. It’s responsive HTML template, which is based on the Bootstrap 4X framework. It utilizes all of the Bootstrap components in design and re-styles many commonly used plugins to create a consistent design that can be used as a user interface for backend applications.</p>
+						<p>Swift is based on a modular design, which allows it to be easily customised and built upon any backend project in no-time. Our documentation will guide you through installing the template and exploring the various components that are bundled with the template.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row clearfix">
+			<div class="col-sm-12">
+				<div class="card" id="features">
+					<div class="header">
+						<h2>Features</h2>
+					</div>
+					<div class="body">
+						<ol>
+							<li><strong>Doctors Profile</strong></li>
+							<li><strong>Doctors Schedule</strong></li>
+							<li><strong>Patient Profile</strong></li>
+							<li><strong>Patient Invoice</strong></li>
+							<li><strong>Hospital Reports</strong></li>
+							<li>Built in <strong>SASS</strong></li>
+							<li>Built with Bootstrap 4</li>
+							<li>Organized, structured code</li>					
+							<li>JS Bundling Ready (<strong>Bundle</strong>)</li>
+							<li><strong>Material Kit added</strong> (New)</li>
+							<li>Fully Responsive & Interactive</li>
+							<li>Elegant & Clean User Interface</li>
+							<li>Expanded and Collapsed Menu (Multi Menu Levels)</li>
+							<li>Responsive Tables</li>
+							<li>Form Wizard</li>
+							<li>IOS type Switches (New)</li>
+							<li>Invoice</li>
+							<li><strong>500+</strong> Ui Components</li>
+							<li>Range Slider (New)</li>
+							<li>Powerful, flexible, and responsive</li>
+							<li>Messenger Notifications</li>
+							<li>Grid Based System</li>
+							<li>404, 500 Error Pages</li>
+							<li><strong>50+ Usefull </strong>Pages</li>
+							<li>Calendar integration</li>
+							<li>Many Charts Options</li>
+							<li>Validation Forms</li>
+							<li>Lots of ready to use plugins.</li>
+							<li>Detailed Documentation</li>
+							<li>Google & Vector Maps</li>
+							<li>Organized Folder Structure</li>
+							<li>Works well in all latest browsers like chrome, Firefox, Opera, Safari, IE9+</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row clearfix">
+			<div class="col-sm-12">
+				<div class="card" id="template">
+					<div class="header">
+						<h2>Template</h2>
+					</div>
+					<div class="body">
+						<p>The template consist of following components as show in image below:</p>
+						<ol>
+							<li>Main header Top Bar - Consist of logo, toggle options like the chat , messages, notifications, search,</li>
+							<li>Side bar -user profile shortcuts,  Consist of user image and details, Main menu, Bar Graph Widgets</li>
+							<li>Content Body</li>
+							<li>Right Bar - Consist of groups and Contact Users for instant messaging. Click on user opens the chat window with that user.</li>
+						</ol>						
+						<p> <img alt="" src="assets/images/1.png" class="img-fluid"></p>
+						<h3>HTML Structre</h3>
+						<h4>Page Head</h4>
+						<p> <img alt="" src="assets/images/html.png" class="img-fluid"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row clearfix">
+			<div class="col-sm-12">
+				<div class="card" id="main_menu">
+					<div class="header">
+						<h2>Main Menu</h2>
+					</div>
+					<div class="body">
+						<img alt="" src="assets/images/2.png" style="max-width: 100%;margin-right:150px;vertical-align:top;margin-bottom:30px;">
+						<img alt="" src="assets/images/3.png" style="max-width: 100%;">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row clearfix">
+			<div class="col-sm-12">
+				<div class="card" id="grunt_file">
+					<div class="header">
+						<h2>Grunt File</h2>
+					</div>
+					<div class="body">
+						<img alt="" src="assets/images/4.png" class="img-fluid">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row clearfix">
+			<div class="col-sm-12">
+				<div class="card" id="main_content">
+					<div class="header">
+						<h2>Main Content</h2>
+					</div>
+					<div class="body">
+<pre class="prettyprint lang-html linenums">
+	<pre class="html" id="line1">
+		&lt;!-- START CONTENT --&gt;
+		&lt;section id="main-content" class=" "&gt;
+			&lt;section class="wrapper"&gt;
+
+			&lt;div class='col-lg-12 col-md-12 col-sm-12'&gt;
+				&lt;div class="page-title"&gt;
+					...               
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="clearfix"&gt;&lt;/div&gt;
+			
+			&lt;div class="col-lg-12"&gt;
+				&lt;section class="box "&gt;
+					...
+				&lt;/section&gt;
+			&lt;/div&gt;
+
+			&lt;/section&gt;
+		&lt;/section&gt;
+		&lt;!-- END CONTENT --&gt;
+	</pre>
+</pre>
+					</div>
+				</div>
+			</div>
+		</div>		
+		<div class="row clearfix">
+			<div class="col-sm-12">
+				<div class="card" id="folder_structure">
+					<div class="header">
+						<h2>Folder Structure</h2>
+					</div>
+					<div class="body">
+	<pre class="prettyprint"><span class="pln">HTML</span><span class="pun">/</span><span class="pln">
+	</span><span class="pun">├──</span><span class="pln"> assets</span><span class="pun">/</span><span class="pln">
+	</span><span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> bundles<span class="pun">/</span>
+	</span><span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> css<span class="pun">/</span>
+	</span><span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> extras<span class="pun">/</span>
+	</span><span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> fonts<span class="pun">/</span>
+	</span><span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> images<span class="pun">/</span>
+	</span><span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> js<span class="pun">/</span>
+	</span><span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> </span><span class="pun">├──</span><span class="pln"> Page<span class="pun">/</span>              
+	</span><span class="pun">│</span><span class="pln">   </span><span class="pun">├──</span><span class="pln"> sass<span class="pun">/</span>
+	</span><span class="pun">└──</span><span class="pln"> css</span><span class="pun">/</span>    
+	</pre>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row clearfix">
+			<div class="col-sm-12">
+				<div class="card" id="css">
+					<div class="header">
+						<h2>CSS Structure</h2>
+					</div>
+					<div class="body">
+						<p>main.css is the main CSS file located in assets/css/ folder of the package. Whole CSS file is well indexed with topic and its related code.</p>
+						<p class="m-b-30">Also animate.min.css file is found in this folder. It has all the animation classes for various elements.</p>
+						<img alt="" src="assets/images/6.png" style="max-width: 100%;margin-right:50px;vertical-align:top;margin-bottom:30px;">
+						<img alt="" src="assets/images/7.png" style="max-width: 100%;">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row clearfix">
+			<div class="col-sm-12">
+				<div class="card" id="javascript">
+					<div class="header">
+						<h2>Javascript</h2>
+					</div>
+					<div class="body">
+						<p>Swift admin.js is the mail javascript file having all the js code. File is located in assets/js/ folder. This file code is also well formatted and section in different respective function names.</p>
+						<p class="m-b-30">Along with this chart library based js code and dashboard based js code are added in separate files for ease of use of user.</p>
+						<p> <img alt="" src="assets/images/8.png" style="max-width: 100%;"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row clearfix">
+			<div class="col-sm-12">
+				<div class="card" id="fonts">
+					<div class="header">
+						<h2>Font Used</h2>
+					</div>
+					<div class="body">
+						<p>Google fonts are used in the template. They are as follows: <a href="https://fonts.google.com/specimen/Roboto">Roboto </a></p>
+						<p>Material Design Iconic Font: <a href="http://zavoloklom.github.io/material-design-iconic-font/icons.html#directional">Click to See</a></p>
+						<p>All Images are used: <a href="https://www.pexels.com/">Pexels.com</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row clearfix">
+			<div class="col-sm-12">
+				<div class="card" id="thank_you">
+					<div class="header">
+						<h2>THANK YOU!</h2>
+					</div>
+					<div class="body">
+						<p> Once again, thank you so much for purchasing this template. As I said at the beginning, I&#39;d be glad to help you if you have any questions relating to this template.</p>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>
+</section>
+
+<div class="color-bg"></div>
+<!-- Jquery Core Js --> 
+<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+<script src="assets/bundles/morphingsearchscripts.bundle.js"></script> <!-- morphing search Js --> 
+<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js --> 
+
+<script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
+<script src="assets/bundles/morphingscripts.bundle.js"></script><!-- morphing search page js --> 
+<script src="assets/js/index.js"></script>
+
+<script>    
+    $('#leftsidebar .list li').click(function(){
+        var $this = $(this);
+        if(!$this.is('active open'))
+        {
+            $('#leftsidebar .list li').removeClass('active open').removeData("top");
+            $this.addClass('active open').data("top", $this.offset().top);
+        }
+    });
+    
+    document.createElement('section');
+    var duration = '500',
+        easing = 'swing';
+</script>
+</body>
+</html>
