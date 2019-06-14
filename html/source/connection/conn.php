@@ -14,6 +14,7 @@
         //echo "Connection successful! <br>";
     /***********************End connection string */
     }
+    catch(PDOException $ex)
     {
         die("error with ".$ex->getMessage());
     }

@@ -1,7 +1,7 @@
 {
-  "name": "Swift",
+  "name": "Agro",
   "version": "1.0.0",
-  "description": "Swift Admin App",
+  "description": "Agro Admin App",
   "main": "index.js",
   "scripts": {
     "test": "grunt"
@@ -10,8 +10,8 @@
     "SaSS",
     "Test"
   ],
-  "author": "Theme Makker",
-  "license": "ISC",
+  "author": "Pavucsan",
+  "license": "None",
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
     "grunt": "^1.0.1",

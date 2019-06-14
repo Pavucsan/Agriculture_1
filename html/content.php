@@ -371,61 +371,9 @@
                     </div>
                     <div class="body">
                         <div class="table-responsive">
-                          <table class="table table-striped">
-                            <thead>
-                              <tr>
-                                <th>#</th>
-                                <th>Temperature</th>
-                                <th>Himility</th>
-                                <th>Moutre</th>
-                                <th>Diseases</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td>1</td>
-                                <td>Virginia </td>
-                                <td>Rose</td>
-                                <td>@Rose</td>
-                                <td><span class="label label-danger">Fever</span> </td>
-                              </tr>
-                              <tr>
-                                <td>2</td>
-                                <td>Julie </td>
-                                <td>Gaylord</td>
-                                <td>@Julie </td>
-                                <td><span class="label label-info">Cancer</span> </td>
-                              </tr>
-                              <tr>
-                                <td>3</td>
-                                <td>Jacqueline </td>
-                                <td>Woods</td>
-                                <td>@Woods</td>
-                                <td><span class="label label-warning">Lakva</span> </td>
-                              </tr>
-                              <tr>
-                                <td>4</td>
-                                <td>Jonathan </td>
-                                <td>Lewis</td>
-                                <td>@Jonathan </td>
-                                <td><span class="label label-success">Dental</span> </td>
-                              </tr>
-                              <tr>
-                                <td>5</td>
-                                <td>Margaret </td>
-                                <td>Griffin</td>
-                                <td>@Margaret </td>
-                                <td><span class="label label-info">Cancer</span> </td>
-                              </tr>
-                              <tr>
-                                <td>6</td>
-                                <td>Joseph </td>
-                                <td>Hunter</td>
-                                <td>@Hunter</td>
-                                <td><span class="label label-success">Dental</span> </td>
-                              </tr>
-                            </tbody>
-                          </table>
+                          <?php
+                            include "_JsonFiles/tableDashboard.php";
+                          ?>
                         </div>
                     </div>
                 </div>
