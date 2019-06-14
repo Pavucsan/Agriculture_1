@@ -60,7 +60,7 @@
                     series:[{name:'Actual'},{name:'Expect'}]
                 };
                 var chart=new Highcharts.chart(options);
-                $.getJSON('phpCode.php',
+                $.getJSON('_JsonFiles/phpCode.php',
                 function(dataParam)
                 {
                     options.series[0].data=dataParam;                
@@ -88,7 +88,7 @@
                     series:[{name:'Actual'},{name:'Expect'}]
                 };
                 var chart=new Highcharts.chart(options);
-                $.getJSON('phpCode.php',
+                $.getJSON('_JsonFiles/phpCode.php',
                 function(dataParam)
                 {
                     options.series[0].data=dataParam;                
@@ -116,7 +116,7 @@
                     series:[{name:'Actual'},{name:'Expect'}]
                 };
                 var chart=new Highcharts.chart(options);
-                $.getJSON('phpCode.php',
+                $.getJSON('_JsonFiles/phpCode.php',
                 function(dataParam)
                 {
                     options.series[0].data=dataParam;                
@@ -133,7 +133,7 @@
     </script>
 
     <script>
-        var mydata=JSON.parse("phpCode3.php");
+        var mydata=JSON.parse("_JsonFiles/phpCode3.php");
 
         alert("hello");
         // var temp=document.getElementById('Temp_data');
@@ -273,39 +273,17 @@
                                         }
                                     }//endTable Row
                                     
-                                    $serverName="localhost";
-                                     $userName="root";
-                                     $password="";
-                                     $dbName="PDOmyDB";
-                                 
-                                     try{
-                                     /***********************Connection string */
-                                         $conn=new PDO("mysql:host=$serverName;dbname=$dbName",$userName,$password);
-                                         //$conn=new PDO("mysql:host=$serverName;",$userName,$password);
-                                 
-                                         //set the pdo error mode tho exception
-                                         $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);                                         
-                                     /***********************End connection string */
-                                 
+                                        include "source/connection/conn.php";
                                          /********************Select Data */
                                          $statement=$conn->prepare("select id,age from Customer ORDER BY id DESC LIMIT 10");
                                          $statement->execute();
-                                 
-                                 
                                          //set the resulting array to associative
                                          $result=$statement->setFetchMode(PDO::FETCH_ASSOC);
-                                 
-                                 
                                          //$result = $statement->setFetchMode(PDO::FETCH_ASSOC); 
                                          foreach(new TableRows(new RecursiveArrayIterator($statement->fetchAll())) as $k=>$v) { 
                                              echo $v;
-                                         }
-                                     }
-                                     catch(PDOException $ex)
-                                     {
-                                         die("Database connection failed: " . $ex->getMessage());
-                                     }
-                                     $conn = null;
+                                         }                                     
+                                        $conn = null;
                                     
                             echo "</tbody>
                                 </table>";

@@ -76,7 +76,7 @@
 <script>
     //get the data from 
     <?php    
-        include "phpCode2.php";
+        include "_JsonFiles/phpCode2.php";
     ?> 
 
     google.charts.load('current', {'packages':['gauge']});
@@ -192,6 +192,8 @@
             <h2>Dashboard</h2>
             <small class="text-muted">Welcome to ProjectAgro</small>
         </div>
+        
+
         <!-- Current levels -->
         <div class="row clearfix">
             <div class="col-lg-3 col-md-3 col-sm-6">
@@ -211,7 +213,9 @@
                     <a href='#section2'>
                     <div class="content">
                         <div class="text">Humility</div>
-                        <div class="number">12</div>
+                        <div class="number">
+                            
+                       </div>
                     </div>
                     </a>
                 </div>
