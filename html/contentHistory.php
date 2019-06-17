@@ -186,7 +186,7 @@
                             <div class="icon"> <i class="zmdi zmdi-chart col-green"></i> </div>                        
                                 <div class="content">
                                     <div class="text">Humility</div>
-                                    <div class="number">12</div>
+                                    <div class="number"><?php ?></div>
                                 </div>
                         </div>                
                     </a>

@@ -202,20 +202,22 @@
                     <a href='#section1'>
                     <div class="content">
                         <div class="text">Temparature</div>
-                        <div class="number">27</div>
-                    </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="info-box-4 hover-zoom-effect">
-                    <div class="icon"> <i class="zmdi zmdi-chart col-green"></i> </div>
-                    <a href='#section2'>
-                    <div class="content">
-                        <div class="text">Humility</div>
-                        <div class="number">
-                            
-                       </div>
+                        <div class="text" style="display:inline; color:blue"><small>Current Level:</small></div>
+                        <div class="number" id="temp" style="display:inline">
+                            <script>
+                                var xmlhttp = new XMLHttpRequest();
+                                xmlhttp.onreadystatechange = function() {
+                                if (this.readyState == 4 && this.status == 200) {
+                                    myObj = JSON.parse(this.responseText);
+                                    document.getElementById("temp").innerHTML = myObj[0][2];
+                                    document.getElementById("TempExpectLevel").innerHTML = myObj[0][1]+" <sup>0</sup>f";
+                                }
+                                };
+                                // xmlhttp.open("GET", "_JsonFiles/phpCurrentTemp.php", true);
+                                xmlhttp.open("GET", "_JsonFiles/TempPhpCodeActualResult.php", true);
+                                xmlhttp.send();
+                            </script>
+                        </div>
                     </div>
                     </a>
                 </div>
@@ -225,16 +227,61 @@
                     <div class="icon"> <i class="zmdi zmdi-chart col-blush"></i> </div>
                     <div class="content">
                         <div class="text">Moisture</div>
-                        <div class="number">27</div>
+                        <div class="text" style="display:inline; color:red"><small>Current Level:</small></div>   
+                        <div class="number" id="moiture" style="display:inline;">
+                            <script>
+                                    var xmlhttp = new XMLHttpRequest();
+
+                                    xmlhttp.onreadystatechange = function() {
+                                    if (this.readyState == 4 && this.status == 200) {
+                                        myObj = JSON.parse(this.responseText);
+                                        document.getElementById("moiture").innerHTML = myObj[0][2]+"%";
+                                        document.getElementById("MoiExpectLevel").innerHTML = myObj[0][1];
+                                    }
+                                    };
+                                    // xmlhttp.open("GET", "_JsonFiles/phpCurrentTemp.php", true);
+                                    xmlhttp.open("GET", "_JsonFiles/MoiturePhpCodeAll.php", true);
+                                    xmlhttp.send();
+                                </script>                            
+                        
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6">
                 <div class="info-box-4 hover-zoom-effect">
+                    <div class="icon"> <i class="zmdi zmdi-chart col-green"></i> </div>
+                    <a href='#section2'>
+                    <div class="content">
+                        <div class="text">Humility</div>
+                        <div class="text" style="display:inline; color:limegreen"><small>Current Level:</small></div>
+                        <div class="number" id="humility" style="display:inline">
+                            <script>
+                                var xmlhttp = new XMLHttpRequest();
+
+                                xmlhttp.onreadystatechange = function() {
+                                if (this.readyState == 4 && this.status == 200) {
+                                    myObj = JSON.parse(this.responseText);
+                                    document.getElementById("humility").innerHTML = myObj[0][2];
+                                    document.getElementById("HumiExpectLevel").innerHTML = myObj[0][1];
+                                }
+                                };
+                                // xmlhttp.open("GET", "_JsonFiles/phpCurrentTemp.php", true);
+                                xmlhttp.open("GET", "_JsonFiles/HumilityPhpCodeAll.php", true);
+                                xmlhttp.send();
+                            </script>                                  
+                       </div>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="info-box-4 hover-zoom-effect">
                     <div class="icon"> <i class="zmdi zmdi-chart col-yello"></i> </div>
                     <div class="content">
                         <div class="text">Sensor additional</div>
-                        <div class="number">27</div>
+                        <div class="number">None</div>
                     </div>
                 </div>
             </div>
@@ -260,7 +307,9 @@
                                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                     <div class="card">
                                         <div class="header">
-                                            <h2>Temparature <small >18% High then last month</small></h2>
+                                            <h2>Temparature <small >Expect Level:
+                                                <div id="TempExpectLevel" style="display:inline"></div>
+                                            </small></h2>
                                             <ul class="header-dropdown">
                                                 <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
                                                     <ul class="dropdown-menu float-right">
@@ -275,13 +324,13 @@
                                             <div class="stats-report">
                                             <div class="stat-item">
                                                 <h5>Overall</h5>
-                                                <b class="col-indigo">70.40%</b></div>
+                                                <b class="col-indigo">00.00</b></div>
                                             <div class="stat-item">
                                                 <h5>Montly</h5>
-                                                <b class="col-indigo">25.80%</b></div>
+                                                <b class="col-indigo">00.00</b></div>
                                             <div class="stat-item">
                                                 <h5>Day</h5>
-                                                <b class="col-indigo">12.50%</b></div>
+                                                <b class="col-indigo">00.00</b></div>
                                             </div>
                                             <div class="sparkline" id="tempMeter" > </div>
                                         </div>
@@ -290,7 +339,9 @@
                                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                     <div class="card">
                                         <div class="header">
-                                            <h2>Moisture Level <small>18% High then last month</small></h2>
+                                            <h2>Moiture <small >Expect Level:
+                                                <div id="MoiExpectLevel" style="display:inline"></div>
+                                            </small></h2>
                                             <ul class="header-dropdown">
                                                 <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
                                                     <ul class="dropdown-menu float-right">
@@ -305,13 +356,13 @@
                                             <div class="stats-report">
                                             <div class="stat-item">
                                                 <h5>Overall</h5>
-                                                <b class="col-blue-grey">80.40%</b></div>
+                                                <b class="col-blush">00.00</b></div>
                                             <div class="stat-item">
                                                 <h5>Montly</h5>
-                                                <b class="col-blue-grey">13.00%</b></div>
+                                                <b class="col-blush">00.00</b></div>
                                             <div class="stat-item">
                                                 <h5>Day</h5>
-                                                <b class="col-blue-grey">9.50%</b></div>
+                                                <b class="col-blush">00.00</b></div>
                                             </div>
                                             <div class="sparkline" id="MotureMeter"></div>
                                         </div>
@@ -320,7 +371,9 @@
                                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                                     <div class="card">
                                         <div class="header">
-                                            <h2>humility <small>18% High then last month</small></h2>
+                                            <h2>Humility <small >Expect Level:
+                                                <div id="HumiExpectLevel" style="display:inline"></div>
+                                            </small></h2>
                                             <ul class="header-dropdown">
                                                 <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-more-vert"></i></a>
                                                     <ul class="dropdown-menu float-right">
@@ -335,13 +388,13 @@
                                             <div class="stats-report">
                                             <div class="stat-item">
                                                 <h5>Overall</h5>
-                                                <b class="col-green">84.60%</b></div>
+                                                <b class="col-green">00.00</b></div>
                                             <div class="stat-item">
                                                 <h5>Montly</h5>
-                                                <b class="col-green">15.40%</b></div>
+                                                <b class="col-green">00.00</b></div>
                                             <div class="stat-item">
                                                 <h5>Day</h5>
-                                                <b class="col-green">5.10%</b></div>
+                                                <b class="col-green">00.00</b></div>
                                             </div>
                                             <div class="sparkline" id="humilityMeter"></div>
                                         </div>
