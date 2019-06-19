@@ -168,9 +168,9 @@
                 <small class="text-muted">Welcome to ProjectAgro</small>
             </div>
             <!-- top lable Start -->
-            <div class="row clearfix CustomClass1">
+            <div class="row clearfix CustomClass1" style="padding-top:10px padding-bottom:0px">
                 <div class="col-lg-3 col-md-3 col-sm-6">
-                    <a href="#section1">
+                    <a href="#section1" style="text-decoration: none;">
                         <div class="info-box-4 hover-zoom-effect">
                             <div class="icon"> <i class="zmdi zmdi-chart col-blue"></i> </div>                        
                                 <div class="content">
@@ -181,7 +181,7 @@
                     </a>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6">
-                    <a href="#section2">
+                    <a href="#section2" style="text-decoration: none;">
                         <div class="info-box-4 hover-zoom-effect">
                             <div class="icon"> <i class="zmdi zmdi-chart col-green"></i> </div>                        
                                 <div class="content">
@@ -192,13 +192,15 @@
                     </a>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6">
-                    <div class="info-box-4 hover-zoom-effect">
-                        <div class="icon"> <i class="zmdi zmdi-chart col-blush"></i> </div>
-                        <div class="content">
-                            <div class="text">Moisture</div>
-                            <div class="number">23</div>
+                    <a href="#section3" style="text-decoration: none;">
+                        <div class="info-box-4 hover-zoom-effect">
+                            <div class="icon"> <i class="zmdi zmdi-chart col-blush"></i> </div>
+                            <div class="content">
+                                <div class="text">Moisture</div>
+                                <div class="number">23</div>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6">
                     <div class="info-box-4 hover-zoom-effect">
@@ -213,7 +215,7 @@
             <!-- Top lable End -->
             
             <!-- Temp history start -->
-            <div class="row clearfix" id="section1">
+            <div class="row clearfix" id="section1" style="padding-top:115px">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="header">
@@ -258,7 +260,7 @@
             <!-- Temp history End -->
 
             <!-- Humility start -->
-            <div class="row clearfix" id="section2">
+            <div class="row clearfix" id="section2" style="padding-top:115px">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="header">
@@ -303,7 +305,7 @@
             <!-- Humility history End -->
 
             <!-- Moiture start -->
-            <div class="row clearfix">
+            <div class="row clearfix" id="section3" style="padding-top:115px">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="header">
