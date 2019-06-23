@@ -1,42 +1,4 @@
-    <!-- google core chart -->
-        <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
-        <!-- <script type="text/javascript">
-            google.charts.load('current', {'packages':['corechart']});
-            google.charts.setOnLoadCallback(drawChart);
-
-            function drawChart() {
-                //get the data from database and pass via variable data
-                var data = google.visualization.arrayToDataTable([
-                ['Time', 'Actual', 'Expect'],
-                ['1',  34,      30],
-                ['2',  35,      30],
-                ['3',  28,       30],
-                ['4',  34,      30],
-                ['5',  35,      30],
-                ['6',  28,       30],
-                ['7',  34,      30],
-                ['8',  35,      30],
-                ['9',  28,       30],
-                ['10',  34,      30],
-                ['11',  35,      30],
-                ['12',  28,       30],
-                ['13',  32,      30]
-                ]);1
-
-                var options = {
-                title: 'Temprature History',
-                //hAxis:{title:'Time'},
-                vAxis:{title:'Celcious'},
-                curveType: 'function',
-                legend: { position: 'bottom' }
-                };
-
-                var chart = new google.visualization.LineChart(document.getElementById('curve_chartX'));
-
-                chart.draw(data, options);
-            }
-        </script> -->
-
+   
     <!-- Highcharts -->
     <script
             src="http://code.jquery.com/jquery-3.3.1.min.js"
@@ -175,7 +137,8 @@
                             <div class="icon"> <i class="zmdi zmdi-chart col-blue"></i> </div>                        
                                 <div class="content">
                                     <div class="text">Temparature</div>
-                                    <div class="number" id="Temp_data">27</div>
+                                    <div class="text" style="display:inline; color:blue"><small>Current Level:</small></div>
+                                    <div class="number" id="temp" style="display:inline"><?php include "AjaxJaso/TopNav.php";?> </div>
                                 </div>                        
                         </div>
                     </a>
@@ -183,10 +146,11 @@
                 <div class="col-lg-3 col-md-3 col-sm-6">
                     <a href="#section2" style="text-decoration: none;">
                         <div class="info-box-4 hover-zoom-effect">
-                            <div class="icon"> <i class="zmdi zmdi-chart col-green"></i> </div>                        
+                            <div class="icon"> <i class="zmdi zmdi-chart col-red"></i> </div>                        
                                 <div class="content">
-                                    <div class="text">Humility</div>
-                                    <div class="number"><?php ?></div>
+                                    <div class="text">Moisture</div>
+                                    <div class="text" style="display:inline; color:red"><small>Current Level:</small></div>
+                                    <div class="number"  id="moiture" style="display:inline"><?php include "AjaxJaso/TopNav.php";?> </div>
                                 </div>
                         </div>                
                     </a>
@@ -194,10 +158,11 @@
                 <div class="col-lg-3 col-md-3 col-sm-6">
                     <a href="#section3" style="text-decoration: none;">
                         <div class="info-box-4 hover-zoom-effect">
-                            <div class="icon"> <i class="zmdi zmdi-chart col-blush"></i> </div>
+                            <div class="icon"> <i class="zmdi zmdi-chart col-green"></i> </div>
                             <div class="content">
-                                <div class="text">Moisture</div>
-                                <div class="number">23</div>
+                                <div class="text">Humility</div>
+                                <div class="text" style="display:inline; color:limegreen"><small>Current Level:</small></div>
+                                <div class="number" id="humility" style="display:inline"><?php include "AjaxJaso/TopNav.php";?> </div>
                             </div>
                         </div>
                     </a>
