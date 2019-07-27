@@ -1,141 +1,19 @@
-
 <!-- high chart -->
 <script src="https://code.highcharts.com/highcharts.js"></script>
-
 <!-- High meter -->
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
-
-
-
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>   
-
-
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <!-- Meter Chart -->
-<!-- this for Temprature -->
-<script>
-    //get the data from 
-    <?php    
-        include "_JsonFiles/phpCode2.php";
-    ?> 
-
-    google.charts.load('current', {'packages':['gauge']});
-    google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-
-        var data = google.visualization.arrayToDataTable(<?php echo "[",json_encode($json[0][0]).",".json_encode($json[0][1])."]";?>);
-
-        var options = {
-          width: 400, height: 200,
-          redFrom: 35, redTo: 50,
-          yellowFrom:25, yellowTo: 35,
-          minorTicks: 5
-        };
-
-        var chart = new google.visualization.Gauge(document.getElementById('tempMeter'));
-
-        chart.draw(data, options);
-
-        setInterval(function() {
-          //data.setValue(0, 1, 20 + Math.round(30 * Math.random()));
-          chart.draw(data, options);
-        }, 1000);        
-      }
-</script>
-<!-- End temp meter -->
-<!-- Moutre level -->
-
-<script>
-    
-    google.charts.load('current', {'packages':['gauge']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-
-        var data = google.visualization.arrayToDataTable([
-          ['Label', 'Value'],          
-          ['Moutre', 25]          
-        ]);
-
-        var options = {
-          width: 400, height: 200,
-          redFrom: 35, redTo: 50,
-          yellowFrom:25, yellowTo: 35,
-          minorTicks: 5
-        };
-
-        var chart = new google.visualization.Gauge(document.getElementById('MotureMeter'));
-
-        chart.draw(data, options);
-
-        setInterval(function() {
-          data.setValue(0, 1, 20 + Math.round(30 * Math.random()));
-          chart.draw(data, options);
-        }, 13000);
-        setInterval(function() {
-          data.setValue(1, 1, 20 + Math.round(30 * Math.random()));
-          chart.draw(data, options);
-        }, 5000);
-        setInterval(function() {
-          data.setValue(2, 1, 10 + Math.round(10 * Math.random()));
-          chart.draw(data, options);
-        }, 26000);
-      }
-
-</script>
-<!-- End Moutre level -->
-
-<!-- Humility Level -->
-<script>
-          google.charts.load('current', {'packages':['gauge']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-
-        var data = google.visualization.arrayToDataTable([
-          ['Label', 'Value'],          
-          ['Humility', 25]          
-        ]);
-
-        var options = {
-          width: 400, height: 200,
-          redFrom: 35, redTo: 50,
-          yellowFrom:25, yellowTo: 35,
-          minorTicks: 5
-        };
-
-        var chart = new google.visualization.Gauge(document.getElementById('humilityMeter'));
-
-        chart.draw(data, options);
-
-        setInterval(function() {
-          data.setValue(0, 1, 20 + Math.round(30 * Math.random()));
-          chart.draw(data, options);
-        }, 13000);
-        setInterval(function() {
-          data.setValue(1, 1, 20 + Math.round(30 * Math.random()));
-          chart.draw(data, options);
-        }, 5000);
-        setInterval(function() {
-          data.setValue(2, 1, 10 + Math.round(10 * Math.random()));
-          chart.draw(data, options);
-        }, 26000);
-      }
-</script>
-<!-- End humility meter -->
-
-
+<?php include "AjaxJaso/meterCharts.php";?>
 <section class="content home">
     <div class="container-fluid">
         <div class="block-header">
             <h2>Dashboard</h2>
             <small class="text-muted">Welcome to ProjectAgro</small>
         </div>
-        
-
         <!-- Current levels -->
         <div class="row clearfix">
             <div class="col-lg-3 col-md-3 col-sm-6">
@@ -187,10 +65,8 @@
                         <div class="number">None</div>
                     </div>
                 </div>
-            </div>
-           
+            </div>           
         </div>
-
         <!-- Current Report -->
         <div class="row clearfix" id="#section1">
             <div class="col-lg-12 col-md-12 col-sm-12">
@@ -317,6 +193,25 @@
                           <?php
                             include "_JsonFiles/tableDashboard.php";
                           ?>
+                          <script>
+                            $(document).ready(function(){
+                                //setInterval(function(){    
+                                    $.getJSON("employees.json",function(data){
+                                        var employeeData='';
+                                        $.each(data,function(key,value){
+                                            employeeData+='<tr>';
+                                            employeeData+='<td>'+value.firstName+'</td>';
+                                            employeeData+='<td>'+value.employeeCode+'</td>';
+                                            employeeData+='<td>'+value.emailAddress+'</td>';
+                                            employeeData+='<td>'+value.region+'</td>';
+                                            employeeData+='</tr>';
+                                        });
+                                        $("#empData").append(employeeData);
+                                    });
+
+                                //},5000);
+                            });
+                        </script>
                         </div>
                     </div>
                 </div>
